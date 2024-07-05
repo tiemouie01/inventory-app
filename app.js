@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
 const mongoDB =
-  "mongodb+srv://timal0361:t9XmozhPAIMUebry@cluster0.vb7i0ux.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://timal0361:t9XmozhPAIMUebry@cluster0.vb7i0ux.mongodb.net/inventory-app?retryWrites=true&w=majority&appName=Cluster0";
 
 main().catch((err) => console.log(err));
 
