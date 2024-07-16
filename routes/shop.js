@@ -3,9 +3,7 @@ const router = express.Router();
 
 const item_controller = require("../controllers/itemController");
 
-router.get("/", function (req, res) {
-  return res.render("index", { title: "Home" });
-});
+router.get("/", item_controller.index);
 
 // CATEGORY ROUTES
 
