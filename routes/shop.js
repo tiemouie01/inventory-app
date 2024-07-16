@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
+const category_controller = require("../controllers/categoryController");
 const item_controller = require("../controllers/itemController");
 
 router.get("/", item_controller.index);
 
 // CATEGORY ROUTES
 
-router.get("/categories", function (req, res) {
-  return res.send("GET request to show all categories");
-});
+router.get("/categories", category_controller.category_list);
 
 router.get("/category/create", function (req, res) {
   return res.send("GET request to create category");
@@ -17,10 +16,6 @@ router.get("/category/create", function (req, res) {
 
 router.post("/category/create", function (req, res) {
   return res.send("POST request to create category");
-});
-
-router.get("/category/:id", function (req, res) {
-  return res.send(`GET request to category ${req.params.id}`);
 });
 
 router.post("/category/:id/delete", function (req, res) {
