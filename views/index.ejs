@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/output.css' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/output.css" />
+    <title>Grocery | <%= title %></title>
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body class="dark:bg-black dark:text-white grid">
+    <div class="grid md:grid-cols-[auto_1fr]">
+      <%- include("./sidebar") %>
+      <main>
+        <h1>Welcome to the e-msika</h1>
+        <p>The home of all grocery appliances</p>
+      </main>
+    </div>
   </body>
 </html>
