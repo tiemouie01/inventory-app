@@ -17,3 +17,13 @@ exports.index = asyncHandler(async (req, res, next) => {
     item_count: numItems,
   });
 });
+
+// Display a list of all items
+exports.item_list = asyncHandler(async (req, res, next) => {
+  const allItems = await Item.find().populate("category").exec();
+
+  return res.render("item_list", {
+    title: "Items",
+    items: allItems,
+  });
+});
