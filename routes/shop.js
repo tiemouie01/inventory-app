@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+const item_controller = require("../controllers/itemController");
+
 router.get("/", function (req, res) {
-  return res.send("GET request to the homepage");
+  return res.render("index", { title: "Home" });
 });
 
 // CATEGORY ROUTES
@@ -64,3 +66,5 @@ router.post("item/:id/update", function (req, res) {
 router.post("item/:id/delete", function (req, res) {
   return res.send(`POST request to delete item ${req.params.id}`);
 });
+
+module.exports = router;
