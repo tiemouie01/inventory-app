@@ -27,3 +27,13 @@ exports.item_list = asyncHandler(async (req, res, next) => {
     items: allItems,
   });
 });
+
+// Display details for a specific item.
+exports.item_detail = asyncHandler(async (req, res, next) => {
+  const item = await Item.findById(req.params.id).populate("category").exec();
+
+  return res.render("item_detail", {
+    title: item.name,
+    item,
+  })
+})

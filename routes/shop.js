@@ -44,9 +44,7 @@ router.post("/item/create", function (req, res) {
   return res.send("POST request to create item");
 });
 
-router.get("item/:id", function (req, res) {
-  return res.send(`GET request to item ${req.params.id}`);
-});
+router.get("/item/:id", item_controller.item_detail);
 
 router.get("item/:id/update", function (req, res) {
   return res.send(`GET request to update item ${req.params.id}`);
