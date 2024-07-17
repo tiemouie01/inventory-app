@@ -46,15 +46,15 @@ router.post("/item/create", function (req, res) {
 
 router.get("/item/:id", item_controller.item_detail);
 
-router.get("item/:id/update", function (req, res) {
+router.get("/item/:id/update", function (req, res) {
   return res.send(`GET request to update item ${req.params.id}`);
 });
 
-router.post("item/:id/update", function (req, res) {
+router.post("/item/:id/update", function (req, res) {
   return res.send(`POST request to update item ${req.params.id}`);
 });
 
-router.post("item/:id/delete", function (req, res) {
+router.post("/item/:id/delete", function (req, res) {
   return res.send(`POST request to delete item ${req.params.id}`);
 });
 
