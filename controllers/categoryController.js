@@ -1,4 +1,5 @@
 const Category = require("../models/category");
+const Item = require("../models/item");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
@@ -8,5 +9,18 @@ exports.category_list = asyncHandler(async (req, res, next) => {
   return res.render("category_list", {
     title: "Categories",
     categories: allCategories,
+  });
+});
+
+// Display details for a specific category
+exports.category_detail = asyncHandler(async (req, res, next) => {
+  const [category, categoryItems] = await Promise.all([
+    Category.findById(req.params.id).exec(),
+    Item.find({ category: req.params.id }, "name description"),
+  ]);
+  return res.render("category_detail", {
+    title: category.name,
+    category,
+    categoryItems,
   });
 });

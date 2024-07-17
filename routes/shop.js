@@ -10,6 +10,8 @@ router.get("/", item_controller.index);
 
 router.get("/categories", category_controller.category_list);
 
+router.get("/category/:id", category_controller.category_detail);
+
 router.get("/category/create", function (req, res) {
   return res.send("GET request to create category");
 });
