@@ -10,19 +10,15 @@ router.get("/", item_controller.index);
 
 router.get("/categories", category_controller.category_list);
 
-router.get("/category/:id", category_controller.category_detail);
+router.get("/category/create", category_controller.category_create_get);
 
-router.get("/category/create", function (req, res) {
-  return res.send("GET request to create category");
-});
-
-router.post("/category/create", function (req, res) {
-  return res.send("POST request to create category");
-});
+router.post("/category/create", category_controller.category_create_post);
 
 router.post("/category/:id/delete", function (req, res) {
   return res.send(`POST request to delete category ${req.params.id}`);
 });
+
+router.get("/category/:id", category_controller.category_detail);
 
 router.get("/category/:id/update", function (req, res) {
   return res.send(`GET request to update category ${req.params.id}`);
