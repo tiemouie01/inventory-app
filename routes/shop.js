@@ -32,9 +32,7 @@ router.post("/category/:id/update", function (req, res) {
 
 router.get("/items", item_controller.item_list);
 
-router.get("/item/create", function (req, res) {
-  return res.send("GET request to create item");
-});
+router.get("/item/create", item_controller.item_create_get);
 
 router.post("/item/create", function (req, res) {
   return res.send("POST request to create item");
